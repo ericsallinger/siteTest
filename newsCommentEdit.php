@@ -14,9 +14,9 @@
     $edit = htmlspecialchars($_POST['edit']);
     $content = $_POST['content'];
     $commentID = $_POST['commentID'];
-    // if(!hash_equals($_SESSION['token'], $_POST['token'])){
-	// die("Request forgery detected");
-    // }
+    if(!hash_equals($_SESSION['token'], $_POST['token'])){
+	die("Request forgery detected");
+    }
 
     
     //add new user

@@ -29,9 +29,9 @@
     <?php
     
         session_start();
-        // if(!isset($_SESSION['token'])){
-        //      $_SESSION['token']= bin2hex(random_bytes(32));
-        // }
+        if(!isset($_SESSION['token'])){
+             $_SESSION['token']= bin2hex(random_bytes(32));
+        }
         require 'database.php';
         if(isset($_SESSION['username'])){
             echo '<h1>Logged in as: '.$_SESSION['username'].'</h1>';
@@ -57,8 +57,8 @@
         Title<input type="text" name="title"><br>
         Content <input type="text" name="content"><br>
         Link<input type="text" name="link">
-        <input type="submit" value="Submit"></form></h2>
-        <!-- add token? -->';
+        <input type="hidden" name="token" value='.$_SESSION['token'].' />
+        <input type="submit" value="Submit"></form></h2>';
         }
         else{
             echo'<h2>Submit a Story<br>To submit a story please login</h2>';

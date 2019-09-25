@@ -43,9 +43,9 @@
         echo '<form name="commentSubmit" action="newsCommentSubmit.php" method="POST">
         Submit a comment<input type="text" name="content">
         <input type="hidden" name="storyID" value='.$_SESSION['storyID'].'>
-
+         <input type="hidden" name="token" value='.$_SESSION['token'].' />
         <input type="submit" value="Submit"></form><br>'; 
-        };
+        }
 
         //display comments
         $stmt2 = $mysqli->prepare("select commentID,storyID,username,content from comments where storyID=?");
@@ -69,7 +69,7 @@
                 if(isset($_SESSION['username']))if($_SESSION['username'] == $username){
                     echo '<form name="commentDelete" action="newsCommentDelete.php" method="POST">
                     <input type="hidden" name="storyID" value='.$_SESSION['storyID'].'>
-                   
+                    <input type="hidden" name="token" value='.$_SESSION['token'].' />
                     <input type="hidden" name="commentID" value='.$commentID.'>
                     <input type="submit" value="Delete Comment"></form><br>';
 
@@ -78,12 +78,12 @@
                     Edit Comment<input type="text" name="edit">
                     <input type="hidden" name="content" value='.$content.'>
                     <input type="hidden" name="commentID" value='.$commentID.'>
-
+                    <input type="hidden" name="token" value='.$_SESSION['token'].' />
                     <input type="submit" value="Edit"></form><br>';
-                    //add tokens?
                                        
                 }
             }
+
         }
         
     ?>

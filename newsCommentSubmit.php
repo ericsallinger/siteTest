@@ -12,9 +12,9 @@
     require 'database.php';
     $username = $_SESSION["username"];
     $content = htmlspecialchars($_POST['content']);
-    // if(!hash_equals($_SESSION['token'], $_POST['token'])){
-	// die("Request forgery detected");
-    // }
+    if(!hash_equals($_SESSION['token'], $_POST['token'])){
+	die("Request forgery detected");
+    }
     // echo $_SESSION['storyID'];
 
 
