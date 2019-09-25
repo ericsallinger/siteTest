@@ -14,7 +14,7 @@
     $username = $_SESSION["username"];
     $title = htmlspecialchars($_POST['title']);
     $content = htmlspecialchars($_POST['content']);
-    $link = $_POST['link'];
+    $link = htmlspecialchars($_POST['link']);
     if(!hash_equals($_SESSION['token'], $_POST['token'])){
 	die("Request forgery detected");
     }

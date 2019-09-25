@@ -22,20 +22,22 @@
         
 
         //display stories
-        $stmt = $mysqli->prepare("select content,title from stories where storyID=?");
+        $stmt = $mysqli->prepare("select content,title,link from stories where storyID=?");
         if(!$stmt){
             printf("Query Prep Failed: %s\n", $mysqli->error);
             exit;
         }
         $stmt->bind_param('i',$_SESSION['storyID']);
         $stmt->execute();
-        $stmt->bind_result($content,$title);
-        $content2 = htmlspecialchars($content);
-        $title2 = htmlspecialchars($title);
+        $stmt->bind_result($content,$title,$link);
 
         while($stmt->fetch()){
             echo '<h4>'.$title.'</h4><br>';
+            if($link != null){
+                echo '<h6>'.$link.'</h6><br>';
+            }
             echo '<h5>'.$content.'</h5>';
+            
             
         }
 
