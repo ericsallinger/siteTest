@@ -7,3 +7,8 @@ http://ec2-3-15-199-117.us-east-2.compute.amazonaws.com/newsHome.php
 Creative portion:
 In order to gain a better understanding of php interacting with sql and sql querying, I designed a user comment records page that displays information about the site's users that is organized based on amount of comments submitted by a user. I fit this data into an HTML table.
 
+-11 Error occurs when attempting to edit and delete stories 
+-2 w3c validator does not pass
+-10 Creative project lacking only one feature added 
+
+Final Score 52 / 75
